@@ -1,3 +1,4 @@
+import 'package:banipay_comercial/controllers/auth_controller.dart';
 import 'package:banipay_comercial/controllers/users_controller.dart';
 import 'package:banipay_comercial/models/user_account.dart';
 import 'package:banipay_comercial/theme/colors.dart';
@@ -11,6 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final UsersController _usersController=Get.put<UsersController>(UsersController());
+  final AuthController _authController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +33,29 @@ class _HomePageState extends State<HomePage> {
               Container(child: Text("Fracaso"),),
             );
           }),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        elevation: 5,
-        backgroundColor: royalPurple,
-        child: const Icon(Icons.add,color: textSecondColor,),
-      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: (){
+              _authController.logout();
+              Get.offNamedUntil('/login', (route) => false);
+            },
+            heroTag:'Tag1',
+            elevation: 5,
+            backgroundColor: royalPurple,
+            child: const Icon(Icons.exit_to_app,color: textSecondColor,),
+          ),
+          const SizedBox(height: 10,),
+          FloatingActionButton(
+            onPressed: (){},
+            heroTag:'Tag2',
+            elevation: 5,
+            backgroundColor: royalPurple,
+            child: const Icon(Icons.add,color: textSecondColor,),
+          ),
+        ],
+      )
 
     );
   }
