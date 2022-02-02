@@ -1,6 +1,7 @@
 import 'package:banipay_comercial/controllers/users_controller.dart';
 import 'package:banipay_comercial/models/user_account.dart';
 import 'package:banipay_comercial/theme/colors.dart';
+import 'package:banipay_comercial/widgets/card_user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class HomePage extends StatefulWidget {
@@ -18,7 +19,15 @@ class _HomePageState extends State<HomePage> {
       body: Obx((){
         return Container(
           child: (_usersController.listUsers().isNotEmpty)?
-          Container(child: Text("Exito"),):
+          ListView.builder(
+              itemCount: _usersController.listUsers().length,
+              itemBuilder: (context, index){
+                return GestureDetector(
+                  onTap: (){},
+                  child: CardUser(_usersController.listUsers.value[index]),
+                );
+              }
+          ):
           Container(child: Text("Fracaso"),),
         );
       })

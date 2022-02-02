@@ -47,8 +47,8 @@ class UsersController extends GetxController {
         users.add(User.fromJson(unitUser));
       }
       listUsers.value=users;
-      print("Response List users");
-      print(users[0]);
+      // print("Response List users");
+      // print(users[0]);
       // return users;
     }
     // return null;
