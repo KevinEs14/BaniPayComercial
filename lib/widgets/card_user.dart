@@ -13,7 +13,9 @@ class CardUser extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
+          Text("Nombre: ${user.firstName} ${user.lastName}"),
           Text(user.email),
+          Text("Telf: ${user.phone}"),
         ],
       ),
       decoration: BoxDecoration(
