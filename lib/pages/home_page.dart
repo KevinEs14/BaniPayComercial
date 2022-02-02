@@ -17,20 +17,27 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: greyColor,
       body: Obx((){
-        return Container(
-          child: (_usersController.listUsers().isNotEmpty)?
-          ListView.builder(
-              itemCount: _usersController.listUsers().length,
-              itemBuilder: (context, index){
-                return GestureDetector(
-                  onTap: (){},
-                  child: CardUser(_usersController.listUsers.value[index]),
-                );
-              }
-          ):
-          Container(child: Text("Fracaso"),),
-        );
-      })
+            return Container(
+              child: (_usersController.listUsers().isNotEmpty)?
+              ListView.builder(
+                  itemCount: _usersController.listUsers().length,
+                  itemBuilder: (context, index){
+                    return GestureDetector(
+                      onTap: (){},
+                      child: CardUser(_usersController.listUsers.value[index]),
+                    );
+                  }
+              ):
+              Container(child: Text("Fracaso"),),
+            );
+          }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        elevation: 5,
+        backgroundColor: royalPurple,
+        child: const Icon(Icons.add,color: textSecondColor,),
+      ),
+
     );
   }
 }
