@@ -12,7 +12,7 @@ import 'package:http/http.dart' as http;
 
 class UsersController extends GetxController {
   final listUsers = Rx<List<User>>([]);
-
+  final indexUser=Rx<int>(0);
   //SERVICE
   // final AuthenticationService authenticationService;
   // AuthController({required this.authenticationService});

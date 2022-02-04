@@ -105,11 +105,12 @@ class Affiliate {
     required this.legalAddress,
     required this.contactNumber,
     required this.reportEmail,
+    required this.industry,
     this.imageUrl,
     required this.activated,
     required this.withInvoice,
     required this.bankAccountNumberBolivian,
-    this.bolivianBank,
+    required this.bolivianBank,
     this.bankAccountNumberUsDollar,
     required this.idCommercial,
     this.createdAt,
@@ -123,11 +124,12 @@ class Affiliate {
   String legalAddress;
   String contactNumber;
   String reportEmail;
+  String industry;
   String? imageUrl;
   bool activated;
   bool withInvoice;
   String bankAccountNumberBolivian;
-  String? bolivianBank;
+  String bolivianBank;
   String? bankAccountNumberUsDollar;
   String idCommercial;
   String? createdAt;
@@ -142,6 +144,7 @@ class Affiliate {
       legalAddress: json["legalAddress"],
       contactNumber: json["contactNumber"],
       reportEmail: json["reportEmail"],
+      industry: json["industry"],
       imageUrl: json["imageUrl"],
       activated: json["activated"],
       withInvoice: json["withInvoice"],
@@ -162,6 +165,7 @@ class Affiliate {
         "legalAddress": legalAddress,
         "contactNumber": contactNumber,
         "reportEmail": reportEmail,
+        "industry": industry,
         "imageUrl": imageUrl,
         "activated": activated,
         "withInvoice": withInvoice,

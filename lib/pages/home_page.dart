@@ -25,7 +25,10 @@ class _HomePageState extends State<HomePage> {
                   itemCount: _usersController.listUsers().length,
                   itemBuilder: (context, index){
                     return GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        _usersController.indexUser.value=index;
+                        Get.toNamed("/specific-user");
+                      },
                       child: CardUser(_usersController.listUsers.value[index]),
                     );
                   }

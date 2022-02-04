@@ -12,10 +12,21 @@ class TextStyles{
       fontSize: 16,
       color: textSecondColor,
   );
+  static const labelTextStyle=TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: royalPurple,
+  );
   static const titleStyle=TextStyle(
       fontSize: 25,
       fontWeight: FontWeight.bold,
       color: royalPurple,
+      height: 1
+  );
+  static const title2Style=TextStyle(
+      fontSize: 25,
+      fontWeight: FontWeight.bold,
+      color: coolCyan,
       height: 1
   );
 }
