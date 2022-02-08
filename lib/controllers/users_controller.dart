@@ -12,20 +12,32 @@ import 'package:http/http.dart' as http;
 
 class UsersController extends GetxController {
   final listUsers = Rx<List<User>>([]);
-  final indexUser=Rx<int>(0);
-  //SERVICE
-  // final AuthenticationService authenticationService;
-  // AuthController({required this.authenticationService});
+  final listAdmins = Rx<List<User>>([]);
+  final listAffiliates = Rx<List<User>>([]);
+  final listCustomers = Rx<List<User>>([]);
+  final indexRole=Rx<int>(0);
+  final indexCustomer=Rx<int>(0);
+  final indexAdmin=Rx<int>(0);
+  final indexAffiliate=Rx<int>(0);
+  final editUser=Rx<User?>(null);
 
-
-
-  String authUrl =
-      dotenv.env['BASE_API_HOST']! + ':' + dotenv.env['LOGIN_PORT']!;
+  //Direction of EndPoints
+  String obtainUsersUrl =
+      dotenv.env['BASE_API_HOST']! + dotenv.env['GET_USERS']!;
+  String obtainAdminUrl =
+      dotenv.env['BASE_API_HOST']! + dotenv.env['GET_ADMIN']!;
+  String obtainAffiliateUrl =
+      dotenv.env['BASE_API_HOST']! + dotenv.env['GET_AFFILIATE']!;
+  String obtainCustomerUrl =
+      dotenv.env['BASE_API_HOST']! + dotenv.env['GET_CUSTOMER']!;
 
   //CONTROLLER FUNCTIONS
   @override
   void onInit() async {
+    obtainAdmins();
     obtainUsers();
+    obtainAffiliate();
+    obtainCustomer();
     super.onInit();
   }
 
@@ -36,7 +48,8 @@ class UsersController extends GetxController {
     };
 
     final response = await http.get(
-      Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
+      // Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
+      Uri.parse(obtainUsersUrl),
       headers: headers,
       // body: jsonEncode(user.toJson())
     );
@@ -54,19 +67,76 @@ class UsersController extends GetxController {
     // return null;
   }
 
-  // Future<List<User>?> getUsers() async {
-  //   try {
-  //     UserAccount? user = await authenticationService.login(userCredentials);
-  //     bool credentials = await saveCredentialData(userCredentials.email, userCredentials.password);
-  //     if (user != null && credentials) {
-  //       await _userDataController.setUserAccount(user);
-  //       Get.offNamedUntil('/home', (route) => false);
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   } catch (e) {
-  //     return false;
-  //   }
-  // }
+  Future<void> obtainAdmins() async {
+    var headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer null'
+    };
+
+    final response = await http.get(
+      // Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
+      Uri.parse(obtainAdminUrl),
+      headers: headers,
+      // body: jsonEncode(user.toJson())
+    );
+    debugPrint(response.body);
+    if (response.statusCode == 200) {
+      List<User> users=[];
+      for(var unitUser in jsonDecode(response.body)){
+        users.add(User.fromJson(unitUser));
+      }
+      listAdmins.value=users;
+      // return users;
+    }
+    // return null;
+  }
+
+  Future<void> obtainAffiliate() async {
+    var headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer null'
+    };
+
+    final response = await http.get(
+      // Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
+      Uri.parse(obtainAffiliateUrl),
+      headers: headers,
+      // body: jsonEncode(user.toJson())
+    );
+    debugPrint(response.body);
+    if (response.statusCode == 200) {
+      List<User> users=[];
+      for(var unitUser in jsonDecode(response.body)){
+        users.add(User.fromJson(unitUser));
+      }
+      listAffiliates.value=users;
+      // return users;
+    }
+    // return null;
+  }
+
+
+  Future<void> obtainCustomer() async {
+    var headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer null'
+    };
+
+    final response = await http.get(
+      // Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
+      Uri.parse(obtainCustomerUrl),
+      headers: headers,
+      // body: jsonEncode(user.toJson())
+    );
+    debugPrint(response.body);
+    if (response.statusCode == 200) {
+      List<User> users=[];
+      for(var unitUser in jsonDecode(response.body)){
+        users.add(User.fromJson(unitUser));
+      }
+      listCustomers.value=users;
+      // return users;
+    }
+    // return null;
+  }
 }

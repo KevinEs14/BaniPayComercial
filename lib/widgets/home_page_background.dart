@@ -3,8 +3,8 @@ import 'package:banipay_comercial/theme/colors.dart' as colors;
 // import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class AuthBackground extends StatelessWidget {
-  const AuthBackground({Key? key, required this.child}) : super(key: key);
+class HomePageBackground extends StatelessWidget {
+  const HomePageBackground({Key? key, required this.child}) : super(key: key);
 
   final Widget child;
   @override
@@ -55,7 +55,7 @@ class _PurpleBox extends StatelessWidget {
       height: size.height * 0.4,
       decoration: _purpleBoxDecoration(),
       child: Stack(
-        children: [
+        children: const [
           Positioned(top: 90, left: 30, child: _Bubble()),
           Positioned(top: -40, left: -30, child: _Bubble()),
           Positioned(top: -50, right: -20, child: _Bubble()),
@@ -67,7 +67,11 @@ class _PurpleBox extends StatelessWidget {
   }
 
   BoxDecoration _purpleBoxDecoration() {
-    return BoxDecoration(color: colors.coolCyan);
+    return const BoxDecoration(
+        borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20.0),
+            bottomRight: Radius.circular(20.0)),
+    color: colors.coolCyan);
   }
 }
 
@@ -79,7 +83,7 @@ class _Bubble extends StatelessWidget {
     return Container(
       width: 100,
       height: 100,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           shape: BoxShape.circle, color: Color.fromRGBO(255, 255, 255, 0.05)),
     );
   }

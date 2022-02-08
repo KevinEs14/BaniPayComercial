@@ -15,7 +15,7 @@ class TextStyles{
   static const labelTextStyle=TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
-    color: royalPurple,
+    color: textColor,
   );
   static const titleStyle=TextStyle(
       fontSize: 25,
@@ -26,7 +26,7 @@ class TextStyles{
   static const title2Style=TextStyle(
       fontSize: 25,
       fontWeight: FontWeight.bold,
-      color: coolCyan,
+      color: textColor,
       height: 1
   );
 }

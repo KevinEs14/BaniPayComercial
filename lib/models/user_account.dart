@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:banipay_comercial/ui/values/strings.dart';
+
 UserAccount userAccountFromJson(String str) =>
     UserAccount.fromJson(json.decode(str));
 
@@ -111,7 +113,7 @@ class Affiliate {
     required this.withInvoice,
     required this.bankAccountNumberBolivian,
     required this.bolivianBank,
-    this.bankAccountNumberUsDollar,
+    required this.bankAccountNumberUsDollar,
     required this.idCommercial,
     this.createdAt,
     this.updatedAt,
@@ -130,7 +132,7 @@ class Affiliate {
   bool withInvoice;
   String bankAccountNumberBolivian;
   String bolivianBank;
-  String? bankAccountNumberUsDollar;
+  String bankAccountNumberUsDollar;
   String idCommercial;
   String? createdAt;
   String? updatedAt;
@@ -141,16 +143,16 @@ class Affiliate {
       id: json["id"],
       legalName: json["legalName"],
       nit: json["nit"],
-      legalAddress: json["legalAddress"],
-      contactNumber: json["contactNumber"],
-      reportEmail: json["reportEmail"],
-      industry: json["industry"],
+      legalAddress: json["legalAddress"]??Strings.noAddress,
+      contactNumber: json["contactNumber"]??Strings.noPhoneContact,
+      reportEmail: json["reportEmail"]??Strings.noEnterpriseEmail,
+      industry: json["industry"]??Strings.noIndustry,
       imageUrl: json["imageUrl"],
       activated: json["activated"],
       withInvoice: json["withInvoice"],
-      bankAccountNumberBolivian: json["bankAccountNumberBolivian"],
-      bolivianBank: json["bolivianBank"],
-      bankAccountNumberUsDollar: json["bankAccountNumberUsDollar"],
+      bankAccountNumberBolivian: json["bankAccountNumberBolivian"]??Strings.noBankAccountNumberBolivian,
+      bolivianBank: json["bolivianBank"]??Strings.noBank,
+      bankAccountNumberUsDollar: json["bankAccountNumberUsDollar"]??Strings.noBankAccountNumberDolar,
       idCommercial: json["idCommercial"],
       createdAt: json["createdAt"],
       updatedAt: json["updatedAt"],

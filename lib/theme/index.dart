@@ -11,7 +11,7 @@ ThemeData globalTheme() {
 
   return ThemeData(
       textTheme: _globalTextTheme(),
-      primaryColor: colors.royalPurple,
+      primaryColor: colors.coolCyan,
       backgroundColor: Colors.grey[100],
       dividerColor: Colors.transparent,
       appBarTheme: AppBarTheme(iconTheme: IconThemeData(color: royalPurple), ),
@@ -24,14 +24,14 @@ ThemeData globalTheme() {
       colorScheme: ColorScheme(
 
           primary: colors.accentMagenta,
-          primaryVariant: colors.royalPurple,
+          primaryVariant: colors.coolCyan,
           secondary: accentMagenta,
-          secondaryVariant: colors.coolCyan,
+          secondaryVariant: colors.royalPurple,
           surface: Colors.white,
           background: Colors.grey[100]!,
           error: Colors.redAccent[400]!,
           onPrimary: Colors.white,
-          onSecondary: colors.royalPurple,
+          onSecondary: colors.coolCyan,
           onSurface: Colors.white,
           onBackground: Colors.black,
           onError: Colors.black,

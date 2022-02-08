@@ -25,16 +25,16 @@ class LoginPage extends StatelessWidget {
               CardContainer(
                 child: Column(
                   children: [
-                    SizedBox(height: 10),
-                    Text(
-                      '¡Bienvenido!',
-                      style: GoogleFonts.titilliumWeb(
-                          fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.w900,
-                          fontSize: 45,
-                          color: Colors.grey[400]),
-                    ),
-                    SizedBox(height: 30),
+                    // SizedBox(height: 10),
+                    // Text(
+                    //   '¡Bienvenido!',
+                    //   style: GoogleFonts.titilliumWeb(
+                    //       fontStyle: FontStyle.italic,
+                    //       fontWeight: FontWeight.w900,
+                    //       fontSize: 45,
+                    //       color: Colors.grey[400]),
+                    // ),
+                    const SizedBox(height: 30),
                     _LoginForm()
                   ],
                 ),
@@ -143,7 +143,7 @@ class _LoginFormState extends State<_LoginForm> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
                 elevation: 0,
-                color: colors.royalPurple,
+                color: colors.coolCyan,
                 minWidth: Get.width*0.5,
                 height: 50,
 

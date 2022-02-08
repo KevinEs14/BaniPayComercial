@@ -24,6 +24,7 @@ class EditUserPage extends StatelessWidget {
                       // const Text("prueba edit",style: TextStyles.buttonTextStyle,)
                       TextFormField(
                         keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.next,
                         onChanged: (value){},
                         validator: (value){
                           if(value==null || value.trim().isEmpty){
@@ -31,12 +32,13 @@ class EditUserPage extends StatelessWidget {
                           }
                         },
                         decoration: InputDecorations.authInputDecoration(
-                            hintText: _usersController.listUsers.value[_usersController.indexUser.value].email,
-                            labelText: "Email",icon: Icons.email
+                            hintText: "Email ",
+                            labelText: "${_usersController.editUser.value!.email}",icon: Icons.email
                         ),
                       ),
                       TextFormField(
                         keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
                         onChanged: (value){},
                         validator: (value){
                           if(value==null || value.trim().isEmpty){
@@ -47,12 +49,13 @@ class EditUserPage extends StatelessWidget {
                           }
                         },
                         decoration: InputDecorations.authInputDecoration(
-                            hintText: _usersController.listUsers.value[_usersController.indexUser.value].phone,
-                            labelText: "Teléfono",icon: Icons.phone_android
+                            hintText:"Teléfono",
+                            labelText: " ${_usersController.editUser.value!.phone}",icon: Icons.phone_android
                         ),
                       ),
                       TextFormField(
                         keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
                         onChanged: (value){},
                         validator: (value){
                           if(value==null || value.trim().isEmpty){
@@ -63,12 +66,13 @@ class EditUserPage extends StatelessWidget {
                           }
                         },
                         decoration: InputDecorations.authInputDecoration(
-                            hintText: _usersController.listUsers.value[_usersController.indexUser.value].documentNumber,
-                            labelText: "Ci",icon: Icons.credit_card
+                            hintText:"Ci ",
+                            labelText: "${_usersController.editUser.value!.documentNumber}",icon: Icons.credit_card
                         ),
                       ),
                       TextFormField(
                         keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.next,
                         onChanged: (value){},
                         validator: (value){
                           if(value==null || value.trim().isEmpty){
@@ -76,12 +80,14 @@ class EditUserPage extends StatelessWidget {
                           }
                         },
                         decoration: InputDecorations.authInputDecoration(
-                            hintText: _usersController.listUsers.value[_usersController.indexUser.value].affiliate!.legalName,
-                            labelText: "Nombre Legal",icon: Icons.drive_file_rename_outline
+                            hintText: "Nombre Legal ",
+                            labelText: "${_usersController.editUser.value!.affiliate!.legalName}",
+                            icon: Icons.drive_file_rename_outline
                         ),
                       ),
                       TextFormField(
                         keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
                         onChanged: (value){},
                         validator: (value){
                           if(value==null || value.trim().isEmpty){
@@ -92,12 +98,13 @@ class EditUserPage extends StatelessWidget {
                           }
                         },
                         decoration: InputDecorations.authInputDecoration(
-                            hintText: _usersController.listUsers.value[_usersController.indexUser.value].affiliate!.nit,
-                            labelText: "NIT",icon: Icons.picture_as_pdf
+                            hintText: "NIT ",
+                            labelText: "${_usersController.editUser.value!.affiliate!.nit}",icon: Icons.picture_as_pdf
                         ),
                       ),
                       TextFormField(
                         keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.next,
                         onChanged: (value){},
                         validator: (value){
                           if(value==null || value.trim().isEmpty){
@@ -105,12 +112,14 @@ class EditUserPage extends StatelessWidget {
                           }
                         },
                         decoration: InputDecorations.authInputDecoration(
-                            hintText: _usersController.listUsers.value[_usersController.indexUser.value].affiliate!.legalAddress,
-                            labelText: "Dirección",icon: Icons.drive_file_rename_outline
+                            hintText: "Dirección ",
+                            labelText: "${_usersController.editUser.value!.affiliate!.legalAddress}",
+                            icon: Icons.drive_file_rename_outline
                         ),
                       ),
                       TextFormField(
                         keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
                         onChanged: (value){},
                         validator: (value){
                           if(value==null || value.trim().isEmpty){
@@ -121,12 +130,14 @@ class EditUserPage extends StatelessWidget {
                           }
                         },
                         decoration: InputDecorations.authInputDecoration(
-                            hintText: _usersController.listUsers.value[_usersController.indexUser.value].affiliate!.contactNumber,
-                            labelText: "Telf. Contacto",icon: Icons.phone
+                            hintText: "Telf. Contacto ",
+                            labelText: "${_usersController.editUser.value!.affiliate!.contactNumber}",
+                            icon: Icons.phone
                         ),
                       ),
                       TextFormField(
                         keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.next,
                         onChanged: (value){},
                         validator: (value){
                           if(value==null || value.trim().isEmpty){
@@ -134,12 +145,14 @@ class EditUserPage extends StatelessWidget {
                           }
                         },
                         decoration: InputDecorations.authInputDecoration(
-                            hintText: _usersController.listUsers.value[_usersController.indexUser.value].affiliate!.reportEmail,
-                            labelText: "Email Empresa",icon: Icons.email
+                            hintText: "Email de Empresa",
+                            labelText: "${_usersController.editUser.value!.affiliate!.reportEmail}",
+                            icon: Icons.email
                         ),
                       ),
                       TextFormField(
                         keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
                         onChanged: (value){},
                         validator: (value){
                           if(value==null || value.trim().isEmpty){
@@ -150,12 +163,14 @@ class EditUserPage extends StatelessWidget {
                           }
                         },
                         decoration: InputDecorations.authInputDecoration(
-                            hintText: _usersController.listUsers.value[_usersController.indexUser.value].affiliate!.bankAccountNumberBolivian,
-                            labelText: "N° cuenta Boliviana",icon: Icons.account_balance
+                            hintText: "N° cuenta Boliviana ",
+                            labelText: "${_usersController.editUser.value!.affiliate!.bankAccountNumberBolivian}",
+                            icon: Icons.account_balance
                         ),
                       ),
                       TextFormField(
                         keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.next,
                         onChanged: (value){},
                         validator: (value){
                           if(value==null || value.trim().isEmpty){
@@ -163,12 +178,14 @@ class EditUserPage extends StatelessWidget {
                           }
                         },
                         decoration: InputDecorations.authInputDecoration(
-                            hintText: _usersController.listUsers.value[_usersController.indexUser.value].affiliate!.bolivianBank,
-                            labelText: "Banco",icon: Icons.food_bank_sharp
+                            hintText: "Banco ",
+                            labelText: "${_usersController.editUser.value!.affiliate!.bolivianBank}",
+                            icon: Icons.food_bank_sharp
                         ),
                       ),
                       TextFormField(
                         keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.done,
                         onChanged: (value){},
                         validator: (value){
                           if(value==null || value.trim().isEmpty){
@@ -176,8 +193,9 @@ class EditUserPage extends StatelessWidget {
                           }
                         },
                         decoration: InputDecorations.authInputDecoration(
-                            hintText: _usersController.listUsers.value[_usersController.indexUser.value].affiliate!.industry,
-                            labelText: "Industria",icon: Icons.business
+                            hintText: "Tipo de industria ",
+                            labelText: "${_usersController.editUser.value!.affiliate!.industry}",
+                            icon: Icons.business
                         ),
                       ),
                     ],
