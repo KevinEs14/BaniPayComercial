@@ -1,6 +1,7 @@
 
 import 'package:banipay_comercial/pages/admin_page.dart';
 import 'package:banipay_comercial/pages/affiliate_page.dart';
+import 'package:banipay_comercial/pages/create_account_page.dart';
 import 'package:banipay_comercial/pages/customer_page.dart';
 import 'package:banipay_comercial/pages/edit_user_page.dart';
 import 'package:banipay_comercial/pages/home_page.dart';
@@ -41,5 +42,9 @@ List<GetPage> routes = [
   GetPage(
     name: '/customer',
     page: () => CustomerPage(),
+  ),
+  GetPage(
+    name: '/create-account',
+    page: () => CreateAccountPage(),
   ),
 ];

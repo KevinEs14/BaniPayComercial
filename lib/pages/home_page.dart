@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: greyColor,
+      backgroundColor: coolCyan,
       body: HomePageBackground(
         child: Container(
           decoration: BoxDecoration(
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: (){},
+            onPressed: (){Get.toNamed("/create-account");},
             heroTag:'Tag2',
             elevation: 5,
             backgroundColor: coolCyan,

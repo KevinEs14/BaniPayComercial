@@ -17,6 +17,11 @@ class TextStyles{
     fontWeight: FontWeight.bold,
     color: textColor,
   );
+  static const typeTextStyle=TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: coolCyan,
+  );
   static const titleStyle=TextStyle(
       fontSize: 25,
       fontWeight: FontWeight.bold,

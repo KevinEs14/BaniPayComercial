@@ -26,14 +26,14 @@ class LoginPage extends StatelessWidget {
                 child: Column(
                   children: [
                     // SizedBox(height: 10),
-                    // Text(
-                    //   '¡Bienvenido!',
-                    //   style: GoogleFonts.titilliumWeb(
-                    //       fontStyle: FontStyle.italic,
-                    //       fontWeight: FontWeight.w900,
-                    //       fontSize: 45,
-                    //       color: Colors.grey[400]),
-                    // ),
+                    Text(
+                      'Comercial',
+                      style: GoogleFonts.titilliumWeb(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w900,
+                          fontSize: 45,
+                          color: Colors.grey[400]),
+                    ),
                     const SizedBox(height: 30),
                     _LoginForm()
                   ],
