@@ -141,7 +141,8 @@ class EditUserPage extends StatelessWidget {
                               // controller: _legalName,
                               keyboardType: TextInputType.text,
                               textInputAction: TextInputAction.next,
-                              initialValue: _usersController.editUser.value!.affiliate!.legalName,
+                              initialValue: _usersController.editUser.value!.affiliate==null?""
+                                  :_usersController.editUser.value!.affiliate!.legalName,
                               onChanged: (value){},
                               validator: (value){
                                 if(value==null || value.trim().isEmpty){
@@ -162,7 +163,8 @@ class EditUserPage extends StatelessWidget {
                               // controller: _nit,
                               keyboardType: TextInputType.number,
                               textInputAction: TextInputAction.next,
-                              initialValue: _usersController.editUser.value!.affiliate!.nit,
+                              initialValue: _usersController.editUser.value!.affiliate==null?""
+                                  :_usersController.editUser.value!.affiliate!.nit,
                               onChanged: (value){},
                               validator: (value){
                                 if(value==null || value.trim().isEmpty){
@@ -185,7 +187,8 @@ class EditUserPage extends StatelessWidget {
                               // controller: _address,
                               keyboardType: TextInputType.text,
                               textInputAction: TextInputAction.next,
-                              initialValue: _usersController.editUser.value!.affiliate!.legalAddress,
+                              initialValue: _usersController.editUser.value!.affiliate==null?""
+                                  :_usersController.editUser.value!.affiliate!.legalAddress,
                               onChanged: (value){},
                               validator: (value){
                                 if(value==null || value.trim().isEmpty){
@@ -206,7 +209,8 @@ class EditUserPage extends StatelessWidget {
                               // controller: _contactPhone,
                               keyboardType: TextInputType.number,
                               textInputAction: TextInputAction.next,
-                              initialValue: _usersController.editUser.value!.affiliate!.contactNumber,
+                              initialValue: _usersController.editUser.value!.affiliate==null?""
+                                  :_usersController.editUser.value!.affiliate!.contactNumber,
                               onChanged: (value){},
                               validator: (value){
                                 if(value==null || value.trim().isEmpty){
@@ -230,7 +234,8 @@ class EditUserPage extends StatelessWidget {
                               // controller: _businessEmail,
                               keyboardType: TextInputType.text,
                               textInputAction: TextInputAction.next,
-                              initialValue: _usersController.editUser.value!.affiliate!.reportEmail,
+                              initialValue: _usersController.editUser.value!.affiliate==null?""
+                                  :_usersController.editUser.value!.affiliate!.reportEmail,
                               onChanged: (value){},
                               validator: (value){
                                 if(value==null || value.trim().isEmpty){
@@ -251,7 +256,8 @@ class EditUserPage extends StatelessWidget {
                               // controller: _bolivianAccount,
                               keyboardType: TextInputType.number,
                               textInputAction: TextInputAction.next,
-                              initialValue: _usersController.editUser.value!.affiliate!.bankAccountNumberBolivian,
+                              initialValue: _usersController.editUser.value!.affiliate==null?""
+                                  :_usersController.editUser.value!.affiliate!.bankAccountNumberBolivian,
                               onChanged: (value){},
                               validator: (value){
                                 if(value==null || value.trim().isEmpty){
@@ -275,7 +281,8 @@ class EditUserPage extends StatelessWidget {
                               // controller: _bank,
                               keyboardType: TextInputType.text,
                               textInputAction: TextInputAction.next,
-                              initialValue: _usersController.editUser.value!.affiliate!.bolivianBank,
+                              initialValue: _usersController.editUser.value!.affiliate==null?""
+                                  :_usersController.editUser.value!.affiliate!.bolivianBank,
                               onChanged: (value){},
                               validator: (value){
                                 if(value==null || value.trim().isEmpty){
@@ -296,7 +303,8 @@ class EditUserPage extends StatelessWidget {
                               // controller: _industry,
                               keyboardType: TextInputType.text,
                               textInputAction: TextInputAction.done,
-                              initialValue: _usersController.editUser.value!.affiliate!.industry,
+                              initialValue: _usersController.editUser.value!.affiliate==null?""
+                                  :_usersController.editUser.value!.affiliate!.industry,
                               onChanged: (value){},
                               validator: (value){
                                 if(value==null || value.trim().isEmpty){
