@@ -11,6 +11,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
 class UsersController extends GetxController {
+  final formKey = GlobalKey<FormState>();
   final listUsers = Rx<List<User>>([]);
   final listAdmins = Rx<List<User>>([]);
   final listAffiliates = Rx<List<User>>([]);
@@ -30,6 +31,8 @@ class UsersController extends GetxController {
       dotenv.env['BASE_API_HOST']! + dotenv.env['GET_AFFILIATE']!;
   String obtainCustomerUrl =
       dotenv.env['BASE_API_HOST']! + dotenv.env['GET_CUSTOMER']!;
+  String updateUserUrl =
+      dotenv.env['BASE_API_HOST']! + dotenv.env['UPDATE_USER']!;
 
   //CONTROLLER FUNCTIONS
   @override
@@ -125,6 +128,29 @@ class UsersController extends GetxController {
     final response = await http.get(
       // Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
       Uri.parse(obtainCustomerUrl),
+      headers: headers,
+      // body: jsonEncode(user.toJson())
+    );
+    debugPrint(response.body);
+    if (response.statusCode == 200) {
+      List<User> users=[];
+      for(var unitUser in jsonDecode(response.body)){
+        users.add(User.fromJson(unitUser));
+      }
+      listCustomers.value=users;
+      // return users;
+    }
+    // return null;
+  }
+
+  Future<void> updateUser() async {
+    var headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer null'
+    };
+  // print("${updateUserUrl}${editUser.value!.id}");
+    final response = await http.get(
+      Uri.parse("${updateUserUrl}${editUser.value!.id}"),
       headers: headers,
       // body: jsonEncode(user.toJson())
     );

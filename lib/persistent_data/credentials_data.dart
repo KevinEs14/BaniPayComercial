@@ -6,6 +6,8 @@ mixin CredentialData {
     final credential = GetStorage('Credentials');
     await credential.write('email', email);
     await credential.write('password', password);
+    // await credential.write('firstName', firstName);
+    // await credential.write('lastName', lastName);
     return true;
   }
 
@@ -18,6 +20,8 @@ mixin CredentialData {
       UserCredentials credentials=UserCredentials(
           credential.read('email'),
           credential.read('password')
+          // credential.read('firstName'),
+          // credential.read('lastName')
       );
       return credentials;
     }
@@ -27,6 +31,8 @@ mixin CredentialData {
     final credential = GetStorage('Credentials');
     await credential.remove('email');
     await credential.remove('password');
+    // await credential.remove('firstName');
+    // await credential.remove('lastName');
   }
 }
 

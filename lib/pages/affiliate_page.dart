@@ -29,6 +29,7 @@ class _AffiliatePageState extends State<AffiliatePage> {
                     onTap: (){
                       // _usersController.indexAffiliate.value=index;
                       _usersController.editUser.value=_usersController.listAffiliates.value[index];
+                      print("id: ${_usersController.listAffiliates.value[index].id}");
                       Get.toNamed("/specific-user");
                       // print("prueba objeto");
                       // print(_usersController.editUser.value);

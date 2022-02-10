@@ -2,6 +2,7 @@ import 'package:banipay_comercial/models/user_account.dart';
 import 'package:get/get.dart';
 
 class UserDataController extends GetxController {
+
   User loggedUserAccount = User(
     id: '',
     firstName: 'firstName',
@@ -9,6 +10,7 @@ class UserDataController extends GetxController {
     email: 'email',
     activated: false,
     documentNumber: '',
+    authority: null,
     documentType: '',
     imageUrl: '',
     password: '',

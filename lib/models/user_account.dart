@@ -97,6 +97,21 @@ class User {
         "createdAt": createdAt,
         "updatedAt": updatedAt,
       };
+
+  factory User.initEmpty()=>User(
+    id: '',
+    firstName: 'firstName',
+    lastName: 'lastName',
+    email: 'email',
+    activated: false,
+    documentNumber: '',
+    authority: null,
+    // affiliate: null,
+    documentType: '',
+    imageUrl: '',
+    password: '',
+    phone: '',
+  );
 }
 
 class Affiliate {
