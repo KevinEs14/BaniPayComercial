@@ -131,7 +131,7 @@ class EditUserPage extends StatelessWidget {
                               },
                               decoration: InputDecorations.createInputDecoration(
                                   hintText:"",
-                                  labelText: "Ci:",icon: Icons.credit_card
+                                  labelText: "${_usersController.editUser.value!.documentType}:",icon: Icons.credit_card
                               ),
                             ),
                             (_usersController.editUser.value!.authority!.id=="ROLE_CUSTOMER"

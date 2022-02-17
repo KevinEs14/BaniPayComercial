@@ -18,7 +18,7 @@ class CardUser extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text("Nombre: ",style: TextStyles.typeTextStyle,),
-              Text("${user.firstName} ${user.lastName}"),
+              Text(" ${user.lastName} ${user.firstName}"),
             ],
           ),
           Text(user.email),
