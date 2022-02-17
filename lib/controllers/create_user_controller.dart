@@ -17,7 +17,9 @@ class CreateUserController extends GetxController {
 
   final formKey = GlobalKey<FormState>();
   final userInput = Rx<ButtonSelectOption?>(null);
+  final typeDocumentInput = Rx<ButtonSelectOption?>(null);
   final listUsers=Rx<List<UserSelection>>([]);
+  final listTypeDocument=Rx<List<UserSelection>>([]);
   final createUser=Rx<User>(User.initEmpty());
 
   //Direction of EndPoints
@@ -27,6 +29,7 @@ class CreateUserController extends GetxController {
   @override
   void onInit() {
     initUsers();
+    initTypeDocument();
     super.onInit();
   }
 
@@ -46,6 +49,25 @@ class CreateUserController extends GetxController {
           index: 1,
           name: "Cliente",
           role: "ROLE_CUSTOMER"
+      ),
+    ];
+  }
+  void initTypeDocument() {
+    listTypeDocument.value = [
+      UserSelection(
+          index: 1,
+          name: "CI",
+          role: "ci"
+      ),
+      UserSelection(
+          index: 1,
+          name: "PASAPORTE",
+          role: "pasaporte"
+      ),
+      UserSelection(
+          index: 1,
+          name: "NIT",
+          role: "nit"
       ),
     ];
   }
@@ -73,21 +95,30 @@ class CreateUserController extends GetxController {
       createdAt: '',
       usDollarBank: ''
     );
+     // createUser.value.authority=Authority(id: "");
+  }
+  void addAuthority(){
+    createUser.value.authority=Authority(id: "");
   }
 
   Future<bool> creatUserEndpoint() async {
     // final encodedCard = encodeCard(cardNumberInput.value, monthInput.value,
     //     yearInput.value.substring(2, yearInput.value.length));
     var headers = {'Content-Type': 'application/json'};
-    var body = json.encode({
-      createUser.toJson()
-    });
-    var request = await http.post(
+    var body2 = json.encode(
+      createUser.value.toJson()
+    );
+    var response = await http.post(
         Uri.parse(createUserUrl),
         headers: headers,
-        body: body);
-    if (request.statusCode == 200 || request.statusCode == 201) {
-      print("Exito en la creacion de usuario");
+        body: body2);
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      if(response.body.isEmpty){
+        Get.snackbar("Registro incorrecto", "El correo, el número de documento o su teléfono ya fueron registrados, intente cambiarlos",);
+      }else{
+        print("Exito en la creacion de usuario");
+        Get.offNamedUntil('/home', (route) => false);
+      }
       return true;
     }
     return false;

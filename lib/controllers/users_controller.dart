@@ -149,18 +149,19 @@ class UsersController extends GetxController {
       'Authorization': 'Bearer null'
     };
   // print("${updateUserUrl}${editUser.value!.id}");
-    final response = await http.get(
+    final response = await http.put(
       Uri.parse("${updateUserUrl}${editUser.value!.id}"),
       headers: headers,
-      // body: jsonEncode(user.toJson())
+      body: jsonEncode(editUser.value!.toJson())
     );
-    debugPrint(response.body);
+    // debugPrint(response.body);
     if (response.statusCode == 200) {
-      List<User> users=[];
-      for(var unitUser in jsonDecode(response.body)){
-        users.add(User.fromJson(unitUser));
-      }
-      listCustomers.value=users;
+      // print("${updateUserUrl}${editUser.value!.id}");
+      // print("prueba");
+      // print(editUser.value!.toJson());
+      // print(response.body);
+      // print("hecho update");
+      Get.offNamedUntil('/home', (route) => false);
       // return users;
     }
     // return null;

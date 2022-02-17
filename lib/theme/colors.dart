@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const Color royalPurple = Color(0xff2a084c);
 const Color coolCyan = Color(0xff5b9dd7);
+const Color coolCyan2 = Color(0xff3285cd);
 const Color accentMagenta = Color(0xfffa0b60);
 
 const Color textColor = Color(0xff3b3b3d);

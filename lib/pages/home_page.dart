@@ -105,8 +105,8 @@ class _HomePageState extends State<HomePage> {
             onPressed: (){Get.toNamed("/create-account");},
             heroTag:'Tag2',
             elevation: 5,
-            backgroundColor: coolCyan,
-            child: const Icon(Icons.add,color: textSecondColor,),
+            backgroundColor: coolCyan2,
+            child: const Icon(Icons.add,color: textSecondColor),
           ),
           const SizedBox(height: 10,),
           FloatingActionButton(
@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
             },
             heroTag:'Tag1',
             elevation: 5,
-            backgroundColor: coolCyan,
+            backgroundColor: coolCyan2,
             child: const Icon(Icons.exit_to_app,color: textSecondColor,),
           ),
 

@@ -135,7 +135,8 @@ class EditUserPage extends StatelessWidget {
                               ),
                             ),
                             (_usersController.editUser.value!.authority!.id=="ROLE_CUSTOMER"
-                                || _usersController.editUser.value!.authority!.id=="ROLE_SELLER")?
+                                // || _usersController.editUser.value!.authority!.id=="ROLE_SELLER"
+                                || _usersController.editUser.value!.authority!.id=="ROLE_ADMIN")?
                             const SizedBox.shrink():
                             TextFormField(
                               // controller: _legalName,
@@ -157,7 +158,8 @@ class EditUserPage extends StatelessWidget {
                               ),
                             ),
                             (_usersController.editUser.value!.authority!.id=="ROLE_CUSTOMER"
-                                || _usersController.editUser.value!.authority!.id=="ROLE_SELLER")?
+                                // || _usersController.editUser.value!.authority!.id=="ROLE_SELLER"
+                                || _usersController.editUser.value!.authority!.id=="ROLE_ADMIN")?
                             const SizedBox.shrink():
                             TextFormField(
                               // controller: _nit,
@@ -181,7 +183,8 @@ class EditUserPage extends StatelessWidget {
                               ),
                             ),
                             (_usersController.editUser.value!.authority!.id =="ROLE_CUSTOMER"
-                                || _usersController.editUser.value!.authority!.id =="ROLE_SELLER")?
+                                // || _usersController.editUser.value!.authority!.id =="ROLE_SELLER"
+                                || _usersController.editUser.value!.authority!.id=="ROLE_ADMIN")?
                             const SizedBox.shrink():
                             TextFormField(
                               // controller: _address,
@@ -203,7 +206,8 @@ class EditUserPage extends StatelessWidget {
                               ),
                             ),
                             (_usersController.editUser.value!.authority!.id=="ROLE_CUSTOMER"
-                                || _usersController.editUser.value!.authority!.id=="ROLE_SELLER")?
+                                // || _usersController.editUser.value!.authority!.id=="ROLE_SELLER"
+                                || _usersController.editUser.value!.authority!.id=="ROLE_ADMIN")?
                             const SizedBox.shrink():
                             TextFormField(
                               // controller: _contactPhone,
@@ -228,7 +232,8 @@ class EditUserPage extends StatelessWidget {
                               ),
                             ),
                            ( _usersController.editUser.value!.authority!.id=="ROLE_CUSTOMER"
-                                || _usersController.editUser.value!.authority!.id=="ROLE_SELLER")?
+                                // || _usersController.editUser.value!.authority!.id=="ROLE_SELLER"
+                               || _usersController.editUser.value!.authority!.id=="ROLE_ADMIN")?
                             const SizedBox.shrink():
                             TextFormField(
                               // controller: _businessEmail,
@@ -250,7 +255,8 @@ class EditUserPage extends StatelessWidget {
                               ),
                             ),
                             (_usersController.editUser.value!.authority!.id=="ROLE_CUSTOMER"
-                                || _usersController.editUser.value!.authority!.id=="ROLE_SELLER")?
+                                // || _usersController.editUser.value!.authority!.id=="ROLE_SELLER"
+                                || _usersController.editUser.value!.authority!.id=="ROLE_ADMIN")?
                             const SizedBox.shrink():
                             TextFormField(
                               // controller: _bolivianAccount,
@@ -275,7 +281,8 @@ class EditUserPage extends StatelessWidget {
                               ),
                             ),
                             (_usersController.editUser.value!.authority!.id=="ROLE_CUSTOMER"
-                                || _usersController.editUser.value!.authority!.id=="ROLE_SELLER")?
+                                // || _usersController.editUser.value!.authority!.id=="ROLE_SELLER"
+                                || _usersController.editUser.value!.authority!.id=="ROLE_ADMIN")?
                             const SizedBox.shrink():
                             TextFormField(
                               // controller: _bank,
@@ -297,7 +304,8 @@ class EditUserPage extends StatelessWidget {
                               ),
                             ),
                            ( _usersController.editUser.value!.authority!.id=="ROLE_CUSTOMER"
-                                || _usersController.editUser.value!.authority!.id=="ROLE_SELLER")?
+                                // || _usersController.editUser.value!.authority!.id=="ROLE_SELLER"
+                               || _usersController.editUser.value!.authority!.id=="ROLE_ADMIN")?
                             const SizedBox.shrink():
                             TextFormField(
                               // controller: _industry,
@@ -339,8 +347,35 @@ class EditUserPage extends StatelessWidget {
                             _usersController.editUser.value!.authority!.id=="ROLE_ADMIN"?
                             {
                               if(_usersController.formKey.currentState!.validate()){
+                                _usersController.editUser.value!.affiliate=null,
+                                _usersController.editUser.value!.password="",
+                                _usersController.updateUser(),
+                                // Get.offNamedUntil('/home', (route) => false),
                                 print("Prueba update correo ${_usersController.editUser.value!.affiliate!.industry}")
                               }
+                            }
+                                :
+                            _usersController.editUser.value!.authority!.id=="ROLE_SELLER"?
+                            {
+                              if(_usersController.formKey.currentState!.validate()){
+                                _usersController.editUser.value!.password="",
+                                _usersController.updateUser(),
+                                // Get.offNamedUntil('/home', (route) => false),
+                                // print("Prueba update correo ${_usersController.editUser.value!.affiliate!.industry}")
+                              },
+                              // Get.offNamedUntil('/home', (route) => false),
+                            }
+                                :
+                            _usersController.editUser.value!.authority!.id=="ROLE_CUSTOMER"?
+                            {
+                              if(_usersController.formKey.currentState!.validate()){
+                                _usersController.editUser.value!.affiliate=null,
+                                _usersController.editUser.value!.password="",
+                                _usersController.updateUser(),
+                                // Get.offNamedUntil('/home', (route) => false),
+                                print("Prueba update correo ${_usersController.editUser.value!.affiliate!.industry}")
+                              },
+                              // Get.offNamedUntil('/home', (route) => false),
                             }
                                 :
                             Get.back();
@@ -349,7 +384,7 @@ class EditUserPage extends StatelessWidget {
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                         // minWidth: Get.width*0.9,
 
-                        color: royalPurple,
+                        color: coolCyan2,
                         elevation: 0,
                         child: const Padding(
                           padding: EdgeInsets.all(10.0),
@@ -364,7 +399,7 @@ class EditUserPage extends StatelessWidget {
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                         // minWidth: Get.width*0.9,
 
-                        color: royalPurple,
+                        color: coolCyan2,
                         elevation: 0,
                         child: const Padding(
                           padding: EdgeInsets.all(10.0),

@@ -36,7 +36,7 @@ class InputDecorations {
         labelStyle: TextStyle(color: Colors.black),
         prefixIcon: icon != null
             ? Icon(
-          icon,color: royalPurple,
+          icon,color: coolCyan,
         )
             : null);
   }

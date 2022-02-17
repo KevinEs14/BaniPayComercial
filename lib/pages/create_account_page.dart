@@ -15,6 +15,7 @@ class CreateAccountPage extends StatefulWidget {
 class _CreateAccountPageState extends State<CreateAccountPage> {
   final CreateUserController _createUserController=Get.put<CreateUserController>(CreateUserController());
   int _typeUser=0;
+  int _typeDocument=0;
   TextEditingController _email=TextEditingController();
   TextEditingController _password=TextEditingController();
   TextEditingController _firstName=TextEditingController();
@@ -60,17 +61,20 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                                     // print("Valor usuario: ${value.index}");
                                     if(value.text=="Administrador"){
                                       _typeUser=1;
-                                      _createUserController.addAffiliate();
+                                      _createUserController.addAuthority();
                                     }else if(value.text=="Vendedor"){
                                       _typeUser=2;
+                                      _createUserController.addAffiliate();
+                                      _createUserController.addAuthority();
                                     }else if(value.text=="Cliente"){
                                       _typeUser=3;
+                                      _createUserController.addAuthority();
                                     }else{_typeUser=0;}
                                   });
 
                                 },
-                                colorText: royalPurple,
-                                colorBg: royalPurple,
+                                colorText: coolCyan,
+                                colorBg: coolCyan2,
                                 icon: Icons.person,
                                 text: "Tipo de usuario",
                                 list: _createUserController.listUsers.value.map((e) => ButtonSelectOption(e.index, e.name)).toList(),
@@ -182,8 +186,43 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                                 ),
                               ),
                             ),
+
                             Visibility(
                               visible: _typeUser==0?false:true,
+                              child: Obx((){
+                                return ButtonSelect(
+                                  size: Size(Get.width,50),
+                                  context: context,
+                                  onSelected: (ButtonSelectOption value){
+                                    setState(() {
+                                      _createUserController.typeDocumentInput.value=value;
+                                      // print(value.text);
+                                      // print("Valor usuario: ${value.index}");
+                                      if(value.text=="CI"){
+                                        _typeDocument=1;
+                                        _createUserController.createUser.value.documentType="Ci";
+                                      }else if(value.text=="PASAPORTE"){
+                                        _typeDocument=2;
+                                        _createUserController.createUser.value.documentType="Pasaporte";
+                                      }else if(value.text=="NIT"){
+                                        _typeDocument=3;
+                                        _createUserController.createUser.value.documentType="Nit";
+                                      }else{_typeDocument=0;}
+                                    });
+
+                                  },
+                                  colorText: coolCyan,
+                                  colorBg: coolCyan2,
+                                  icon: Icons.person,
+                                  text: "Tipo de documento",
+                                  list: _createUserController.listTypeDocument.value.map((e) => ButtonSelectOption(e.index, e.name)).toList(),
+                                  selected: _createUserController.typeDocumentInput.value,
+                                );
+                              }),
+                            ),
+
+                            Visibility(
+                              visible: _typeDocument==0?false:true,
                               child: TextFormField(
                                 controller: _ci,
                                 keyboardType: TextInputType.number,
@@ -200,12 +239,13 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                                 },
                                 decoration: InputDecorations.createInputDecoration(
                                     hintText:"",
-                                    labelText: "Ci: ",icon: Icons.credit_card
+                                    labelText: _typeDocument==1?"Ci:":
+                                    _typeDocument==2?"Pasaporte:":"Nit:",icon: Icons.credit_card
                                 ),
                               ),
                             ),
                             Visibility(
-                              visible: _typeUser==1?true:false,
+                              visible: _typeUser==2?true:false,
                               child: TextFormField(
                                 controller: _legalName,
                                 keyboardType: TextInputType.text,
@@ -225,7 +265,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               ),
                             ),
                             Visibility(
-                              visible: _typeUser==1?true:false,
+                              visible: _typeUser==2?true:false,
                               child: TextFormField(
                                 controller: _nit,
                                 keyboardType: TextInputType.number,
@@ -247,7 +287,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               ),
                             ),
                             Visibility(
-                              visible: _typeUser==1?true:false,
+                              visible: _typeUser==2?true:false,
                               child: TextFormField(
                                 controller: _address,
                                 keyboardType: TextInputType.text,
@@ -267,7 +307,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               ),
                             ),
                             Visibility(
-                              visible: _typeUser==1?true:false,
+                              visible: _typeUser==2?true:false,
                               child: TextFormField(
                                 controller: _contactPhone,
                                 keyboardType: TextInputType.number,
@@ -291,7 +331,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               ),
                             ),
                             Visibility(
-                              visible: _typeUser==1?true:false,
+                              visible: _typeUser==2?true:false,
                               child: TextFormField(
                                 controller: _businessEmail,
                                 keyboardType: TextInputType.text,
@@ -311,7 +351,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               ),
                             ),
                             Visibility(
-                              visible: _typeUser==1?true:false,
+                              visible: _typeUser==2?true:false,
                               child: TextFormField(
                                 controller: _bolivianAccount,
                                 keyboardType: TextInputType.number,
@@ -334,7 +374,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               ),
                             ),
                             Visibility(
-                              visible: _typeUser==1?true:false,
+                              visible: _typeUser==2?true:false,
                               child: TextFormField(
                                 controller: _bank,
                                 keyboardType: TextInputType.text,
@@ -354,7 +394,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               ),
                             ),
                             Visibility(
-                              visible: _typeUser==1?true:false,
+                              visible: _typeUser==2?true:false,
                               child: TextFormField(
                                 controller: _industry,
                                 keyboardType: TextInputType.text,
@@ -391,27 +431,36 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   MaterialButton(
                     onPressed: (){
                       FocusScope.of(context).requestFocus( FocusNode());
-                      print(_email.text);
+                      // print(_email.text);
                       setState(() {
                         _typeUser==1?
                         {
                           if(_createUserController.formKey.currentState!.validate()){
-                            print("Prueba update correo ${_createUserController.createUser.value.affiliate!.legalName}"),
-                            print("Prueba update correo ${_createUserController.createUser.value.affiliate!.industry}"),
+                            _createUserController.createUser.value!.affiliate=null,
+                            _createUserController.createUser.value.authority!.id="ROLE_ADMIN",
+                            _createUserController.creatUserEndpoint(),
+                            // print("Prueba update correo ${_createUserController.createUser.value.affiliate!.legalName}"),
+                            // print("Prueba update correo ${_createUserController.createUser.value.affiliate!.industry}"),
                           }else{Get.snackbar("Acción indebida", "Llene todos los campos",)}
                         }
                             :
                         _typeUser==2?
                         {
                           if(_createUserController.formKey.currentState!.validate()){
-                            print("Prueba update correo ${_createUserController.createUser.value.email}")
+                            _createUserController.createUser.value.affiliate!.id=null,
+                            _createUserController.createUser.value.authority!.id="ROLE_SELLER",
+                            _createUserController.creatUserEndpoint(),
+                            // print("Prueba update correo ${_createUserController.createUser.value.email}")
                           }else{Get.snackbar("Acción indebida", "Llene todos los campos",)}
                         }
                         :
                         _typeUser==3?
                         {
                           if(_createUserController.formKey.currentState!.validate()){
-                            print("Prueba update correo ${_createUserController.createUser.value.email}")
+                            _createUserController.createUser.value.authority!.id="ROLE_CUSTOMER",
+                            _createUserController.createUser.value!.affiliate=null,
+                            _createUserController.creatUserEndpoint(),
+                            // print("Prueba update correo ${_createUserController.createUser.value.email}")
                           }else{Get.snackbar("Acción indebida", "Llene todos los campos",)}
                         }
                         :
@@ -422,7 +471,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     // minWidth: Get.width*0.9,
 
-                    color: royalPurple,
+                    color: coolCyan2,
                     elevation: 0,
                     child: const Padding(
                       padding: EdgeInsets.all(10.0),
@@ -437,7 +486,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     // minWidth: Get.width*0.9,
 
-                    color: royalPurple,
+                    color: coolCyan2,
                     elevation: 0,
                     child: const Padding(
                       padding: EdgeInsets.all(10.0),

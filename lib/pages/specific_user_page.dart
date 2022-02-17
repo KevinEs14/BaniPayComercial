@@ -207,16 +207,62 @@ class SpecificUserPage extends StatelessWidget{
                 ),
               )
               :
-                Container(
+              Center(
+                child: SingleChildScrollView(
+                  child: Container(
                     width: Get.width,
+                    padding: const EdgeInsets.only(left: 20),
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft: Radius.circular(30)),
                       color: textSecondColor,
-                      ),
-                  child: const Center(
-                      child: Text(Strings.noEnterprise,style: TextStyles.labelTextStyle,)
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // const SizedBox(height: 55,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Text("Email: ",style: TextStyles.labelTextStyle,),
+                            (_usersController.editUser.value!.email.isNotEmpty)?
+                            Text(_usersController.editUser.value!.email,style: TextStyles.commentsStyle,
+                              overflow: TextOverflow.ellipsis,)
+                                :
+                            const Text(Strings.noEmail,style: TextStyles.commentsStyle,),
+                          ],
+                        ),
+                        const SizedBox(height: 5,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Text("Teléfono: ",style: TextStyles.labelTextStyle,),
+                            (_usersController.editUser.value!.phone.isNotEmpty)?
+                            Text(_usersController.editUser.value!.phone,style: TextStyles.commentsStyle,
+                              overflow: TextOverflow.ellipsis,)
+                                :
+                            const Text(Strings.noPhone,style: TextStyles.commentsStyle,),
+                          ],
+                        ),
+                        const SizedBox(height: 5,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text("${_usersController.editUser.value!.documentType}: ",style: TextStyles.labelTextStyle,
+                              overflow: TextOverflow.ellipsis,),
+                            (_usersController.editUser.value!.documentNumber.isNotEmpty)?
+                            Text(_usersController.editUser.value!.documentNumber,style: TextStyles.commentsStyle,
+                              overflow: TextOverflow.ellipsis,)
+                                :
+                            const Text(Strings.noDocumentNumber,style: TextStyles.commentsStyle,),
+
+                          ],
+                        ),
+                        const SizedBox(height: 15,),
+                      ],
+                    ),
                   ),
-                  )
+                ),
+              )
             ),
           ],
         ),
@@ -227,7 +273,7 @@ class SpecificUserPage extends StatelessWidget{
           Get.toNamed("/edit-user");
         },
         elevation: 5,
-        backgroundColor: coolCyan,
+        backgroundColor: coolCyan2,
         child: const Icon(Icons.edit,color: textSecondColor,),
       ),
     );

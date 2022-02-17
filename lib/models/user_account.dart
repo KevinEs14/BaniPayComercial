@@ -93,7 +93,7 @@ class User {
         "documentType": documentType,
         "documentNumber": documentNumber,
         "authority": authority!.toJson(),
-        "affiliate": affiliate!.toJson(),
+        "affiliate": affiliate==null?null:affiliate!.toJson(),
         "createdAt": createdAt,
         "updatedAt": updatedAt,
       };
@@ -116,7 +116,7 @@ class User {
 
 class Affiliate {
   Affiliate({
-    required this.id,
+    this.id,
     required this.legalName,
     required this.nit,
     required this.legalAddress,
@@ -135,7 +135,7 @@ class Affiliate {
     this.usDollarBank,
   });
 
-  String id;
+  String? id;
   String legalName;
   String nit;
   String legalAddress;

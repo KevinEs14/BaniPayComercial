@@ -13,5 +13,5 @@ class Strings{
   static const noBank="No se tiene un banco";
   static const noIndustry="No se tiene un tipo de industria";
   static const noEnterprise="No se tiene registro de una empresa";
-
+  static const noName="No tiene un nombre registrado";
 }

@@ -38,7 +38,7 @@ class ButtonSelect extends FormField<ButtonSelectOption> {
               child: Text( text,style: const TextStyle(color:  Colors.white,fontSize: 20,fontWeight: FontWeight.w700),textAlign: TextAlign.center,),
             ),
             content: SizedBox(
-              height: _screenSize.height*0.3,
+              height: _screenSize.height*0.18,
               width: _screenSize.width,
               child: ListView.builder(
                 padding: EdgeInsets.symmetric(vertical: _screenSize.height*0.01 ),

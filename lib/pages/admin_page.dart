@@ -28,6 +28,7 @@ class _AdminPageState extends State<AdminPage> {
                     onTap: (){
                       // _usersController.indexAdmin.value=index;
                       _usersController.editUser.value=_usersController.listAdmins.value[index];
+                      print("id: ${_usersController.listAffiliates.value[index].id}");
                       Get.toNamed("/specific-user");
                     },
                     child: CardUser(_usersController.listAdmins.value[index]),
