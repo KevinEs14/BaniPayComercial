@@ -40,7 +40,8 @@ class _AffiliatePageState extends State<AffiliatePage> {
               ),
               Obx((){
                 return Expanded(
-                  child: (_usersController.listAffiliates().isNotEmpty)?DraggableScrollbar.rrect(
+                  child: (_usersController.listAffiliates().isNotEmpty)?
+                  DraggableScrollbar.rrect(
                       controller: _scrollViewController,
                       // labelTextBuilder: (offset) => Text("${_usersController.listAdmins.value[(offset.floor()/24).floor()-1].lastName[0]}"),
                       // labelTextBuilder: (offset)=>Text("${offset.floor()}"),
@@ -49,8 +50,11 @@ class _AffiliatePageState extends State<AffiliatePage> {
                             ? (_scrollViewController.offset / _scrollViewController.position.maxScrollExtent * (_usersController.listAffiliates.value.length-1)).floor()
                             : 0;
 
-                        return Text("${_usersController.listAffiliates.value[currentItem].lastName[0]}",
-                          style: TextStyles.buttonTextStyle,);
+                        return _usersController.listAffiliates.value[currentItem].lastName.isNotEmpty?
+                        Text(_usersController.listAffiliates.value[currentItem].lastName[0],
+                          style: TextStyles.buttonTextStyle,):const Text(".",style: TextStyles.buttonTextStyle);
+                          // Text("${_usersController.listAffiliates.value[currentItem].lastName[0]}",
+                          // style: TextStyles.buttonTextStyle,);
                         // return Text("$currentItem");
                       },
                       backgroundColor: coolCyan,

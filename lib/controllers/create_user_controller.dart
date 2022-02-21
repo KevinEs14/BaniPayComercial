@@ -112,6 +112,8 @@ class CreateUserController extends GetxController {
         Uri.parse(createUserUrl),
         headers: headers,
         body: body2);
+    print("Prueba crear usuario response");
+      print(response.body);
     if (response.statusCode == 200 || response.statusCode == 201) {
       if(response.body.isEmpty){
         Get.snackbar("Registro incorrecto", "El correo, el número de documento o su teléfono ya fueron registrados, intente cambiarlos",);

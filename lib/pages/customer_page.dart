@@ -51,8 +51,9 @@ class _CustomerPageState extends State<CustomerPage> {
                             ? (_scrollViewController.offset / _scrollViewController.position.maxScrollExtent * (_usersController.listCustomers.value.length-1)).floor()
                             : 0;
 
-                        return Text("${_usersController.listCustomers.value[currentItem].lastName[0]}",
-                          style: TextStyles.buttonTextStyle,);
+                        return _usersController.listCustomers.value[currentItem].lastName.isNotEmpty?
+                        Text(_usersController.listCustomers.value[currentItem].lastName[0],
+                          style: TextStyles.buttonTextStyle,):const Text(".",style: TextStyles.buttonTextStyle);
                         // return Text("$currentItem");
                       },
                       backgroundColor: coolCyan,

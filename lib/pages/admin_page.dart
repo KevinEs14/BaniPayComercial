@@ -39,7 +39,8 @@ class _AdminPageState extends State<AdminPage> {
               ),
               Obx((){
                 return Expanded(
-                  child: (_usersController.listAdmins().isNotEmpty)?DraggableScrollbar.rrect(
+                  child: (_usersController.listAdmins().isNotEmpty)?
+                  DraggableScrollbar.rrect(
                     controller: _scrollViewController,
                       // labelTextBuilder: (offset) => Text("${_usersController.listAdmins.value[(offset.floor()/24).floor()-1].lastName[0]}"),
                     // labelTextBuilder: (offset)=>Text("${offset.floor()}"),
@@ -48,8 +49,11 @@ class _AdminPageState extends State<AdminPage> {
                             ? (_scrollViewController.offset / _scrollViewController.position.maxScrollExtent * (_usersController.listAdmins.value.length-1)).floor()
                             : 0;
 
-                        return Text("${_usersController.listAdmins.value[currentItem].lastName[0]}",
-                        style: TextStyles.buttonTextStyle,);
+                        return _usersController.listAdmins.value[currentItem].lastName.isNotEmpty?
+                        Text(_usersController.listAdmins.value[currentItem].lastName[0],
+                          style: TextStyles.buttonTextStyle,):const Text(".",style: TextStyles.buttonTextStyle);
+                          // Text("${_usersController.listAdmins.value[currentItem].lastName[0]}",
+                        // style: TextStyles.buttonTextStyle,);
                         // return Text("$currentItem");
                       },
                       backgroundColor: coolCyan,

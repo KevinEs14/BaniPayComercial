@@ -26,10 +26,10 @@ class SpecificUserPage extends StatelessWidget{
                 child: CircleAvatar(
                   radius: Get.height * 0.095,
                   // backgroundColor: Colors.transparent,
-                  child: (_usersController.editUser.value!.affiliate !=null)
+                  child: (_usersController.editUser.value!.imageUrl !=null)
                   // || _usersController.listUsers.value[_usersController.indexUser.value].affiliate!.imageUrl!=null
                       ?
-                  Image.network(_usersController.listAdmins.value[_usersController.indexAdmin.value].affiliate!.imageUrl!,fit: BoxFit.contain,):
+                  Image.network(_usersController.editUser.value!.imageUrl!,fit: BoxFit.contain,):
                   Image.network("https://cdn-icons-png.flaticon.com/512/149/149071.png",
                       fit: BoxFit.contain),
                 ),
@@ -183,8 +183,10 @@ class SpecificUserPage extends StatelessWidget{
                         children: [
                           const Text("N° cuenta en Dólares: ",style: TextStyles.labelTextStyle,),
                           // (_usersController.listUsers.value[_usersController.indexUser.value].affiliate!.bankAccountNumberUsDollar!.isNotEmpty)?
+                          (_usersController.editUser.value!.affiliate!.bankAccountNumberUsDollar.isNotEmpty)?
                           Text(_usersController.editUser.value!.affiliate!.bankAccountNumberUsDollar,
-                            style: TextStyles.commentsStyle,overflow: TextOverflow.ellipsis,),
+                            style: TextStyles.commentsStyle,overflow: TextOverflow.ellipsis,):
+                          const Text(Strings.noBank,style: TextStyles.commentsStyle,),
                           //     :
                           // const Text(Strings.noBankAccountNumberBolivian,style: TextStyles.commentsStyle,),
                         ],
