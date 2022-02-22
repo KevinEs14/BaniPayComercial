@@ -437,6 +437,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         {
                           if(_createUserController.formKey.currentState!.validate()){
                             _createUserController.createUser.value!.affiliate=null,
+                            _createUserController.createUser.value.imageUrl=null,
                             _createUserController.createUser.value.authority!.id="ROLE_ADMIN",
                             _createUserController.creatUserEndpoint(),
                             // print("Prueba update correo ${_createUserController.createUser.value.affiliate!.legalName}"),
@@ -448,6 +449,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         {
                           if(_createUserController.formKey.currentState!.validate()){
                             _createUserController.createUser.value.affiliate!.id=null,
+                            _createUserController.createUser.value.imageUrl=null,
                             _createUserController.createUser.value.authority!.id="ROLE_SELLER",
                             _createUserController.creatUserEndpoint(),
                             // print("Prueba update correo ${_createUserController.createUser.value.email}")
@@ -458,6 +460,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         {
                           if(_createUserController.formKey.currentState!.validate()){
                             _createUserController.createUser.value.authority!.id="ROLE_CUSTOMER",
+                            _createUserController.createUser.value.imageUrl=null,
                             _createUserController.createUser.value!.affiliate=null,
                             _createUserController.creatUserEndpoint(),
                             // print("Prueba update correo ${_createUserController.createUser.value.email}")
