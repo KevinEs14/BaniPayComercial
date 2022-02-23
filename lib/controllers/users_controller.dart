@@ -33,6 +33,8 @@ class UsersController extends GetxController {
       dotenv.env['BASE_API_HOST']! + dotenv.env['GET_CUSTOMER']!;
   String updateUserUrl =
       dotenv.env['BASE_API_HOST']! + dotenv.env['UPDATE_USER']!;
+  String searchUserUrl =
+      dotenv.env['BASE_API_HOST']! + dotenv.env['SEARCH_USER']!;
 
   //CONTROLLER FUNCTIONS
   @override
@@ -162,6 +164,32 @@ class UsersController extends GetxController {
       // print(response.body);
       // print("hecho update");
       Get.offNamedUntil('/home', (route) => false);
+      // return users;
+    }
+    // return null;
+  }
+
+  Future<void> searchAdmin(String word) async {
+    var headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer null'
+    };
+
+    final response = await http.get(
+      // Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
+      Uri.parse("${searchUserUrl}${word}"),
+      headers: headers,
+      // body: jsonEncode(user.toJson())
+    );
+    debugPrint(response.body);
+    if (response.statusCode == 200) {
+      List<User> users=[];
+      print("prueba body search");
+      print(response.body);
+      for(var unitUser in jsonDecode(response.body)){
+        users.add(User.fromJson(unitUser));
+      }
+      listAdmins.value=users;
       // return users;
     }
     // return null;

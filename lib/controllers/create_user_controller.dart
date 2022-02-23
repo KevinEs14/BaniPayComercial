@@ -42,7 +42,7 @@ class CreateUserController extends GetxController {
       ),
       UserSelection(
           index: 1,
-          name: "Vendedor",
+          name: "Afiliado",
           role: "ROLE_SELLER"
       ),
       UserSelection(

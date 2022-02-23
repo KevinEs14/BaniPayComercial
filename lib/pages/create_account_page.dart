@@ -62,7 +62,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                                     if(value.text=="Administrador"){
                                       _typeUser=1;
                                       _createUserController.addAuthority();
-                                    }else if(value.text=="Vendedor"){
+                                    }else if(value.text=="Afiliado"){
                                       _typeUser=2;
                                       _createUserController.addAffiliate();
                                       _createUserController.addAuthority();
@@ -128,6 +128,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               child: TextFormField(
                                 controller: _firstName,
                                 keyboardType: TextInputType.text,
+                                textCapitalization: TextCapitalization.words,
                                 textInputAction: TextInputAction.next,
                                 // initialValue: _usersController.editUser.value!.firstName,
                                 onChanged: (value){},
@@ -149,6 +150,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               child: TextFormField(
                                 controller: _lastName,
                                 keyboardType: TextInputType.text,
+                                textCapitalization: TextCapitalization.words,
                                 textInputAction: TextInputAction.next,
                                 // initialValue: _usersController.editUser.value!.lastName,
                                 onChanged: (value){},
@@ -249,6 +251,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               child: TextFormField(
                                 controller: _legalName,
                                 keyboardType: TextInputType.text,
+                                textCapitalization: TextCapitalization.words,
                                 textInputAction: TextInputAction.next,
                                 onChanged: (value){},
                                 validator: (value){
@@ -291,6 +294,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               child: TextFormField(
                                 controller: _address,
                                 keyboardType: TextInputType.text,
+                                textCapitalization: TextCapitalization.words,
                                 textInputAction: TextInputAction.next,
                                 onChanged: (value){},
                                 validator: (value){
@@ -378,6 +382,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               child: TextFormField(
                                 controller: _bank,
                                 keyboardType: TextInputType.text,
+                                textCapitalization: TextCapitalization.words,
                                 textInputAction: TextInputAction.next,
                                 onChanged: (value){},
                                 validator: (value){
@@ -398,6 +403,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               child: TextFormField(
                                 controller: _industry,
                                 keyboardType: TextInputType.text,
+                                textCapitalization: TextCapitalization.words,
                                 textInputAction: TextInputAction.done,
                                 onChanged: (value){},
                                 validator: (value){

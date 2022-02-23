@@ -36,6 +36,11 @@ class _CustomerPageState extends State<CustomerPage> {
                   searchType: SearchType.ON_CHANGED,
                   updateSearchQuery: (String newQuery){
                     //send the value to the backend
+                    // setState(() {
+                    // if(newQuery!=""){
+                    //   _usersController.searchCustomer(newQuery);
+                    // }
+                    // });
                   },
                 ),
               ),
