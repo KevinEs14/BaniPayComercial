@@ -194,4 +194,54 @@ class UsersController extends GetxController {
     }
     // return null;
   }
+  Future<void> searchAffiliates(String word) async {
+    var headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer null'
+    };
+
+    final response = await http.get(
+      // Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
+      Uri.parse("${searchUserUrl}${word}"),
+      headers: headers,
+      // body: jsonEncode(user.toJson())
+    );
+    debugPrint(response.body);
+    if (response.statusCode == 200) {
+      List<User> users=[];
+      print("prueba body search");
+      print(response.body);
+      for(var unitUser in jsonDecode(response.body)){
+        users.add(User.fromJson(unitUser));
+      }
+      listAffiliates.value=users;
+      // return users;
+    }
+    // return null;
+  }
+  Future<void> searchCustomers(String word) async {
+    var headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer null'
+    };
+
+    final response = await http.get(
+      // Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
+      Uri.parse("${searchUserUrl}${word}"),
+      headers: headers,
+      // body: jsonEncode(user.toJson())
+    );
+    debugPrint(response.body);
+    if (response.statusCode == 200) {
+      List<User> users=[];
+      print("prueba body search");
+      print(response.body);
+      for(var unitUser in jsonDecode(response.body)){
+        users.add(User.fromJson(unitUser));
+      }
+      listCustomers.value=users;
+      // return users;
+    }
+    // return null;
+  }
 }

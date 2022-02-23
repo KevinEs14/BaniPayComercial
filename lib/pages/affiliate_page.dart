@@ -35,6 +35,11 @@ class _AffiliatePageState extends State<AffiliatePage> {
                   searchType: SearchType.ON_CHANGED,
                   updateSearchQuery: (String newQuery){
                     //send the value to the backend
+                    if(newQuery!=""){
+                      _usersController.searchAffiliates(newQuery);
+                    }else{
+                      _usersController.obtainAffiliate();
+                    }
                   },
                 ),
               ),
