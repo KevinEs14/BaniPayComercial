@@ -33,8 +33,12 @@ class UsersController extends GetxController {
       dotenv.env['BASE_API_HOST']! + dotenv.env['GET_CUSTOMER']!;
   String updateUserUrl =
       dotenv.env['BASE_API_HOST']! + dotenv.env['UPDATE_USER']!;
-  String searchUserUrl =
-      dotenv.env['BASE_API_HOST']! + dotenv.env['SEARCH_USER']!;
+  String searchAdminUrl =
+      dotenv.env['BASE_API_HOST']! + dotenv.env['SEARCH_ADMIN']!;
+  String searchAffiliateUrl =
+      dotenv.env['BASE_API_HOST']! + dotenv.env['SEARCH_AFFILIATE']!;
+  String searchCustomerUrl =
+      dotenv.env['BASE_API_HOST']! + dotenv.env['SEARCH_CUSTOMER']!;
 
   //CONTROLLER FUNCTIONS
   @override
@@ -177,7 +181,7 @@ class UsersController extends GetxController {
 
     final response = await http.get(
       // Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
-      Uri.parse("${searchUserUrl}${word}"),
+      Uri.parse("${searchAdminUrl}${word}"),
       headers: headers,
       // body: jsonEncode(user.toJson())
     );
@@ -202,7 +206,7 @@ class UsersController extends GetxController {
 
     final response = await http.get(
       // Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
-      Uri.parse("${searchUserUrl}${word}"),
+      Uri.parse("${searchAffiliateUrl}${word}"),
       headers: headers,
       // body: jsonEncode(user.toJson())
     );
@@ -227,7 +231,7 @@ class UsersController extends GetxController {
 
     final response = await http.get(
       // Uri.parse('https://v2.banipay.me/api/auth/api/user/?_='),
-      Uri.parse("${searchUserUrl}${word}"),
+      Uri.parse("${searchCustomerUrl}${word}"),
       headers: headers,
       // body: jsonEncode(user.toJson())
     );
